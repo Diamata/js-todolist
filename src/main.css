@@ -1,0 +1,290 @@
+:root {
+    --elements: #54BAB9;
+    --contrast: rgb(255, 139, 181);
+
+    --business: rgb(234, 64, 164);
+    --personal: rgb(58, 130, 238);
+    --tobuy: rgb(23, 171, 66);
+
+    --business-glow: 0 0 4px rgba(234, 64, 164, .75);
+    --personal-glow: 0 0 4px rgba(58, 130, 238, .75);
+    --tobuy-glow: 0 0 4px rgba(23, 171, 66, .75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: url('bg.jpg') center center/cover no-repeat;
+    min-height: 100vh;
+    padding: 5px;
+    position: relative;
+}
+
+body,html {
+    height: 100vh;
+}
+
+.wrapper {
+    min-height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    border-radius: 20px;
+    background: rgba(1, 1, 1, 0.8);
+    backdrop-filter: blur(10px);
+    position: absolute;
+}
+
+h1 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 50px;
+    color: var(--elements);
+    padding: 24px 0 24px 24px;
+    margin: 0;
+    line-height: 50px;
+    text-shadow: -2px 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+h4 {
+    color: var(--contrast);
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.create-todo input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: .9rem;
+    color: var(--elements);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.1) 0 0 6px 3px;
+    margin-bottom: 1.5rem;
+    transition: 0.4s all;
+}
+
+.create-todo input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.create-todo input[type="text"]:focus, .create-todo input[type="text"]:hover  {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    transition: 0.4s all;
+}
+
+.create-todo .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 0 5px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.1) 0 0 6px 3px;
+    transition: 0.4s all;
+}
+
+.create-todo .options label:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(1, 1, 1, .5);
+    transition: 0.4s all;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 2px solid var(--business);
+    box-shadow: var(--business-glow);
+    margin-bottom: 5px;
+}
+
+.bubble_title {
+    margin-top: 0.5rem;
+}
+
+.bubble.personal {
+    border-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.bubble.tobuy {
+    border-color: var(--tobuy);
+    box-shadow: var(--tobuy-glow);
+}
+
+.bubble::after {
+    content: '';
+    display: block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--business);
+    box-shadow: var(--business-glow);
+    border-radius: 100%;
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+    background-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.bubble.tobuy::after {
+    background-color: var(--tobuy);
+    box-shadow: var(--tobuy-glow);
+}
+
+input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.create-todo .options label div {
+    color: black;
+    font-size: 0.9rem;
+    margin-top: .5rem;
+}
+
+.create-todo .options label:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: 0.4s all;
+}
+
+.create-todo input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    color: white;
+    text-shadow: rgba(1, 1, 1, .9) 1px 1px 3px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--elements);
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.1) 0 0 6px 3px;
+    transition: 0.2s all;
+}
+
+.create-todo input[type="submit"]:hover {
+    transform: scale(1.02);
+    background-color: var(--elements);
+    transition: .4s all;
+}
+
+.todo-list .list {
+    margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(84, 186, 185, 0.5);
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.1) 0 0 6px 3px;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.todo-item label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.todo-item .todo-content {
+    flex: 1 1 0;
+}
+
+.todo-item .todo-content input {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.todo-item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+.todo-item .actions .edit {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    text-shadow: rgba(1, 1, 1, .9) 1px 1px 3px;
+}
+
+.todo-item .actions .delete {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--contrast);
+    text-shadow: rgba(1, 1, 1, .9) 1px 1px 3px;
+}
+
+.todo-item .actions button:hover {
+    transform: scale(1.3);
+    transition: .4s ease;
+}
+
+.todo-item.done .todo-content input {
+    text-decoration: line-through;
+    color: grey;
+}

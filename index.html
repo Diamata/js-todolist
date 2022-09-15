@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/main.css">
+    <title>ToDo List</title>
+</head>
+<body>
+    <section class="todo-list" id="todo-list-app>">
+
+       <div class="wrapper">
+
+           <h1>ToDo List</h1>
+
+           <div class="container">
+               <div class="section create-todo">
+                   <form id="new-todo-form">
+                       <h4>What's on your todo list?</h4>
+                       <input
+                               type="text"
+                               name="content"
+                               id="content"
+                               placeholder="e.g. to be happy all day :)">
+                       <h4>Pick a category</h4>
+                       <div class="options">
+
+                           <label>
+                               <input
+                                       type="radio"
+                                       name="category"
+                                       id="category1"
+                                       value="business">
+                               <span class="bubble business"></span>
+                               <span class="bubble_title">Business</span>
+                           </label>
+
+                           <label>
+                               <input
+                                       type="radio"
+                                       name="category"
+                                       id="category2"
+                                       value="personal">
+                               <span class="bubble personal"></span>
+                               <span class="bubble_title">Personal</span>
+                           </label>
+
+                           <label>
+                               <input
+                                       type="radio"
+                                       name="category"
+                                       id="category3"
+                                       value="tobuy">
+                               <span class="bubble tobuy"></span>
+                               <span class="bubble_title">To buy</span>
+                           </label>
+
+                       </div>
+
+                       <input type="submit" value="Add todo">
+                   </form>
+               </div>
+
+               <div class="section todo-list">
+                   <h4>Tasks</h4>
+                   <div class="list" id="todo-list">
+
+                   </div>
+               </div>
+           </div>
+       </div>
+    </section>
+    <script src="src/main.js" defer></script>
+</body>
+</html>
