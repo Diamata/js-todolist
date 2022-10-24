@@ -288,3 +288,16 @@ input:checked ~ .bubble::after {
     text-decoration: line-through;
     color: grey;
 }
+
+@media screen and (max-width: 450px) {
+    .create-todo .options {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .todo-list .todo-item {
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+}
